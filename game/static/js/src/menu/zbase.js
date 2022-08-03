@@ -40,7 +40,7 @@ class AcGameMenu {
         });
         this.$settings.click(function(){
           console.log("click settings");
-        });
+        })
     }
     show(){  //显示menu界面
         this.$menu.show();
