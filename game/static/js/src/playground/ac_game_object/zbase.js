@@ -14,12 +14,12 @@ class AcGameObject {
 
     }
 
-    on_destory(){ //在被销毁前执行一次
+    on_destroy(){ //在被销毁前执行一次
 
     }
 
-    destory() { //删除该物体
-        this.on_destory();
+    destroy() { //删除该物体
+        this.on_destroy();
         for(let i=0; i<AC_GAME_OBJECTS.length; i++) {
             if(AC_GAME_OBJECTS[i] === this) {   //js用三个等号表示全等
                 AC_GAME_OBJECTS.splice(i,1);
