@@ -188,6 +188,18 @@ class Player extends AcGameObject
 
     }
 
+    on_destroy()  //玩家死之后的处理函数
+    {
+        for(let i=0;i<this.playground.players.length;i++)
+        {
+            if(this.playground.players[i] === this)
+            {
+                this.playground.players.splice(i,1);
+            }
+
+        }
+
+    }
 
 
 }
