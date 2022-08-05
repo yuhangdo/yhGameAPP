@@ -136,10 +136,12 @@ class Player extends AcGameObject
     update()
     {
         this.spent_time+=this.timedelta/1000;
-        if(this.spent_time>4&&Math.random()<1/300)    //每次更新有180分之一的概率，会朝玩家发射一枚炮弹
+        if(!this.is_me&&this.spent_time>4&&Math.random()<1/300)    //每次更新有180分之一的概率，会朝玩家发射一枚炮弹
         {
             let player=this.playground.players[Math.floor(Math.random()*this.playground.players.length)];
-            this.shoot_fireball(player.x,player.y);
+            let tx=player.x+player.speed*this.vx*this.timedelta/1000*0.3;   //加个预判
+            let ty=player.y+player.speed*this.vy*this.timedelta/1000*0.3;   //预判一秒后的位置
+            this.shoot_fireball(tx,ty);
 
         }
         if(this.damage_speed>10)  //如果被击退了，就是产生击退速度了，就得先判断一下
